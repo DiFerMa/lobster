@@ -1,5 +1,9 @@
 package:
+	rm -rf build
+	rm -rf dist
+	rm -rf *.egg-info
 	rm -rf lobster
 	mkdir -p lobster/tools
-	cp -Rv $(LOBSTER_ROOT)/lobster/tools/json lobster/tools
-	@python3 setup.py sdist bdist_wheel
+	cp ../../lobster/version.py lobster
+	cp -Rv ../../lobster/tools/json lobster/tools
+	python setup.py sdist bdist_wheel

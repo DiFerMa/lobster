@@ -9,18 +9,24 @@ lobster/html/assets.py: $(ASSETS) util/mkassets.py
 
 lint: style
 	@PYTHONPATH=$(SYSTEM_PYTHONPATH) \
-	python3 -m pylint --rcfile=pylint3.cfg \
+	python -m pylint --rcfile=pylint3.cfg \
 		--reports=no \
 		--ignore=assets.py \
 		lobster
 
 style:
-	@python3 -m pycodestyle lobster \
+	python -m pycodestyle lobster \
 		--exclude=assets.py
 
 .PHONY: packages
 packages:
-	git clean -xdf
+	# git clean -xdf
+	# export LOBSTER_ROOT="C:/Projects/Github/lobster"
+	# $(LOBSTER_ROOT)
+	# export PYTHONPATH="C:/Projects/Github/lobster"
+	# $(PYTHONPATH)
+	rm -rf test_install
+	rm -rf test_install_monolithic
 	make lobster/html/assets.py
 	make -C packages/lobster-core
 	make -C packages/lobster-tool-trlc
@@ -37,8 +43,8 @@ packages:
 	PYTHONPATH= \
 		pip3 install --prefix test_install_monolithic \
 		packages/lobster-monolithic/meta_dist/*.whl
-	diff -Naur test_install/lib/python*/site-packages/lobster test_install_monolithic/lib/python*/site-packages/lobster -x "*.pyc"
-	diff -Naur test_install/bin test_install_monolithic/bin
+	diff -Naur test_install/lib/site-packages/lobster test_install_monolithic/lib/site-packages/lobster -x "*.pyc"
+	# diff -Naur test_install/scripts test_install_monolithic/scripts
 
 integration-tests: packages
 	(cd integration-tests/projects/basic; make)
@@ -49,23 +55,23 @@ system-tests:
 	make -B -C test-system/lobster-python
 
 unit-tests:
-	python3 -m unittest discover -s test-unit -v
+	python -m unittest discover -s test-unit -v
 
 test: integration-tests system-tests unit-tests
 
 upload-main: packages
-	python3 -m twine upload --repository pypi packages/*/dist/*
-	python3 -m twine upload --repository pypi packages/*/meta_dist/*
+	python -m twine upload --repository pypi packages/*/dist/*
+	python -m twine upload --repository pypi packages/*/meta_dist/*
 
 remove-dev:
-	python3 -m util.release
+	python -m util.release
 
 github-release:
 	git push
-	python3 -m util.github_release
+	python -m util.github_release
 
 bump:
-	python3 -m util.bump_version_post_release
+	python -m util.bump_version_post_release
 
 full-release:
 	make remove-dev

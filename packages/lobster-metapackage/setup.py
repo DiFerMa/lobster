@@ -6,7 +6,12 @@ import sys
 import setuptools
 import glob
 
-from lobster import version
+#from lobster import version
+VERSION_TUPLE = (0, 9, 17)
+VERSION_SUFFIX = "dev"
+
+LOBSTER_VERSION = ("%u.%u.%u" % VERSION_TUPLE) + \
+    ("-%s" % VERSION_SUFFIX if VERSION_SUFFIX else "")
 
 gh_root = "https://github.com"
 gh_project = "bmw-software-engineering/lobster"
@@ -41,15 +46,15 @@ project_urls = {
     "Source Code"   : "%s/%s"        % (gh_root, gh_project),
 }
 
-packages = ["bmw-lobster-core>=%s" % version.LOBSTER_VERSION]
+packages = ["bmw-lobster-core>=%s" % LOBSTER_VERSION]
 for dirname in glob.glob("../lobster-tool-*"):
     packages.append("bmw-%s>=%s" % (os.path.basename(dirname),
-                                    version.LOBSTER_VERSION))
+                                    LOBSTER_VERSION))
 packages += package_requirements
 
 setuptools.setup(
     name="bmw-lobster",
-    version=version.LOBSTER_VERSION,
+    version=LOBSTER_VERSION,
     author="Bayerische Motoren Werke Aktiengesellschaft (BMW AG)",
     author_email="philipp.wullstein-kammler@bmw.de",
     description="Metapackage to install all LOBSTER Tools",

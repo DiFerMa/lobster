@@ -1,5 +1,9 @@
 package:
-	rm -rf lobster dist meta_dist
-	cp -Rv $(LOBSTER_ROOT)/lobster lobster
-	@python3 setup.py sdist bdist_wheel
+	rm -rf build
+	rm -rf dist
+	rm -rf meta_dist
+	rm -rf *.egg-info
+	rm -rf lobster
+	cp -Rv ../../lobster lobster
+	python setup.py sdist bdist_wheel
 	mv dist meta_dist

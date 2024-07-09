@@ -9,3 +9,4 @@ meta_dist
 
 test_install
 test_install_monolithic
+.idea/
