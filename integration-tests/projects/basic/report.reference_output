@@ -53,7 +53,9 @@
             "line": 3
           },
           "name": "example.req_implication",
-          "messages": [],
+          "messages": [
+            "missing reference to Code"
+          ],
           "just_up": [],
           "just_down": [],
           "just_global": [],
@@ -61,10 +63,9 @@
             "req 12345"
           ],
           "ref_down": [
-            "cpp foo.cpp:implication:3",
             "gtest ImplicationTest:BasicTest"
           ],
-          "tracing_status": "OK",
+          "tracing_status": "PARTIAL",
           "framework": "TRLC",
           "kind": "Tagged_Requirement",
           "text": "text: provide a utility function for logical implication",
@@ -148,8 +149,8 @@
           "ref_up": [],
           "ref_down": [
             "req example.req_important",
-            "python nor.Example.helper_function",
-            "python nor.Example.nor"
+            "python nor.Example",
+            "python nor.Example-1"
           ],
           "tracing_status": "MISSING",
           "framework": "TRLC",
@@ -210,75 +211,12 @@
           "status": null
         }
       ],
-      "coverage": 50.0
+      "coverage": 33.333333333333336
     },
     {
       "name": "Code",
       "kind": "implementation",
       "items": [
-        {
-          "tag": "cpp foo.cpp:implication:3",
-          "location": {
-            "kind": "github",
-            "gh_root": "https://github.com/bmw-software-engineering/lobster",
-            "commit": "main",
-            "file": "integration-tests/projects/basic/foo.cpp",
-            "line": 3
-          },
-          "name": "implication",
-          "messages": [],
-          "just_up": [],
-          "just_down": [],
-          "just_global": [],
-          "ref_up": [
-            "req example.req_implication"
-          ],
-          "ref_down": [],
-          "tracing_status": "OK",
-          "language": "C/C++",
-          "kind": "function"
-        },
-        {
-          "tag": "cpp foo.cpp:exclusive_or:9",
-          "location": {
-            "kind": "github",
-            "gh_root": "https://github.com/bmw-software-engineering/lobster",
-            "commit": "main",
-            "file": "integration-tests/projects/basic/foo.cpp",
-            "line": 9
-          },
-          "name": "exclusive_or",
-          "messages": [
-            "missing up reference"
-          ],
-          "just_up": [],
-          "just_down": [],
-          "just_global": [],
-          "tracing_status": "MISSING",
-          "language": "C/C++",
-          "kind": "function"
-        },
-        {
-          "tag": "cpp foo.cpp:potato:14",
-          "location": {
-            "kind": "github",
-            "gh_root": "https://github.com/bmw-software-engineering/lobster",
-            "commit": "main",
-            "file": "integration-tests/projects/basic/foo.cpp",
-            "line": 14
-          },
-          "name": "potato",
-          "messages": [
-            "unknown tracing target req example.doesnt_exist",
-            "missing up reference"
-          ],
-          "just_up": [],
-          "just_down": [],
-          "just_global": [],
-          "tracing_status": "MISSING",
-          "language": "C/C++",
-          "kind": "function"
-        },
         {
           "tag": "matlab nand",
           "location": {
@@ -384,7 +322,7 @@
           "kind": "Function"
         },
         {
-          "tag": "python nor.Example.helper_function",
+          "tag": "python nor.Example",
           "location": {
             "kind": "github",
             "gh_root": "https://github.com/bmw-software-engineering/lobster",
@@ -392,7 +330,7 @@
             "file": "integration-tests/projects/basic/nor.py",
             "line": 13
           },
-          "name": "nor.Example.helper_function",
+          "name": "nor.Example",
           "messages": [],
           "just_up": [],
           "just_down": [],
@@ -406,7 +344,7 @@
           "kind": "Method"
         },
         {
-          "tag": "python nor.Example.nor",
+          "tag": "python nor.Example-1",
           "location": {
             "kind": "github",
             "gh_root": "https://github.com/bmw-software-engineering/lobster",
@@ -414,7 +352,7 @@
             "file": "integration-tests/projects/basic/nor.py",
             "line": 17
           },
-          "name": "nor.Example.nor",
+          "name": "nor.Example",
           "messages": [],
           "just_up": [],
           "just_down": [],
@@ -428,7 +366,7 @@
           "kind": "Method"
         }
       ],
-      "coverage": 60.0
+      "coverage": 71.42857142857143
     },
     {
       "name": "Verification Test",
@@ -604,10 +542,6 @@
         "Software Requirements"
       ],
       "source": [
-        {
-          "file": "cppcode.lobster",
-          "filters": []
-        },
         {
           "file": "mcode.lobster",
           "filters": []
