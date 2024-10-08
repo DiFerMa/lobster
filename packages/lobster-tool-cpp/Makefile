@@ -1,3 +1,5 @@
+LOBSTER_ROOT:=../..
+
 package:
 	rm -rf lobster
 	mkdir -p lobster/tools
