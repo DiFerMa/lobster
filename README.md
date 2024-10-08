@@ -9,10 +9,8 @@ This repository contains the prototype for LOBSTER, which is a key
 ingredient to make TRCL more useful.
 
 It has tools to extract tracing tags from a variety of sources combine
-them and produce a tracing report. The [TRLC tracing
-report](https://bmw-software-engineering.github.io/trlc/tracing.html)
-from the [TRLC
-Project](https://github.com/bmw-software-engineering/trlc/) is a
+them and produce a tracing report. The [TRLC tracing report](https://bmw-software-engineering.github.io/trlc/tracing.html)
+from the [TRLC Project](https://github.com/bmw-software-engineering/trlc/) is a
 reasonable example of what is possible.
 
 ## Installing
@@ -28,9 +26,8 @@ $ pip3 install bmw-lobster
 
 The following requirements frameworks are supported:
 
-* [TRLC](work-in-progress) (only some use cases supported right now)
-* [Codebeamer](packages/lobster-tool-codebeamer/README.md) (only some
-  use cases supported right now)
+* [TRLC] (only some use cases supported right now)
+* [Codebeamer](packages/lobster-tool-codebeamer/README.md) (only some use cases supported right now)
 
 The following programming languages are supported:
 
@@ -42,8 +39,7 @@ The following programming languages are supported:
 The following verification and miscellaneous frameworks are supported:
 
 * [GoogleTest](packages/lobster-tool-gtest/README.md)
-* [JSON](packages/lobster-tool-json/README.md) useful if your test
-  framework is encoded in JSON
+* [JSON](packages/lobster-tool-json/README.md) useful if your test framework is encoded in JSON
 
 ## Documentation
 

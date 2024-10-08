@@ -24,3 +24,8 @@ LOBSTER_VERSION = ("%u.%u.%u" % VERSION_TUPLE) + \
     ("-%s" % VERSION_SUFFIX if VERSION_SUFFIX else "")
 
 FULL_NAME = "LOBSTER %s" % LOBSTER_VERSION
+
+GITHUB_PROJECT = "https://github.com/bmw-software-engineering/lobster"
+BUGS_URL = "%s/issues" % GITHUB_PROJECT
+DOCS_URL = "%s#documentation" % GITHUB_PROJECT
+CODE_URL = GITHUB_PROJECT
