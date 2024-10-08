@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: wheels
-          path: "packages/${{ matrix.tools }}/dist/lobster-*.whl"
+          path: "packages/${{ matrix.tools }}/dist/*.whl"
 
   upload-test:
     name: PyPI Upload
